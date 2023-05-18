@@ -1,11 +1,15 @@
 package hello.exception.servlet;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.web.server.ConfigurableWebServerFactory;
 import org.springframework.boot.web.server.ErrorPage;
 import org.springframework.boot.web.server.WebServerFactoryCustomizer;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
+@Slf4j
 @Component
 public class WebServerCustomizer implements WebServerFactoryCustomizer<ConfigurableWebServerFactory> {
     @Override
@@ -17,5 +21,6 @@ public class WebServerCustomizer implements WebServerFactoryCustomizer<Configura
 
         factory.addErrorPages(errorPage404, errorPage500, errorPageEx);
     }
+
 
 }
